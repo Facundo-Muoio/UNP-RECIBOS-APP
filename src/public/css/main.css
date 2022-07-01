@@ -10,3 +10,41 @@
     border-radius:50% ;
     background-color: white;
 }
+
+input:focus {
+    outline: none;
+}
+
+input[type="datetime"] {
+    max-width: 80px;
+}
+
+.input-salary, .input-extras {
+    max-width: 100px;
+}
+
+.fa-pen-to-square{
+    color:red !important; 
+    width: 80px;
+    height: 80px;
+}
+
+tr > td {
+    padding: 4px 10px !important;
+}
+
+.td-align-center {
+    line-height: 45px;
+}
+
+input{
+    height: 28px;
+} *
+
+tr { 
+    line-height: 48px;
+}
+
+th {
+    padding: 4px 12px !important;
+}

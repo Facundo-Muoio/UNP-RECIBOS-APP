@@ -10,11 +10,14 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <style>
+     
         .containerRecibo{
             border: 2px solid black;
             border-radius: 4px;
             padding: 4px 12px;
-            margin-bottom: 5px;
+            margin-bottom: 409px;
+            margin-right: 200px;
+            margin-left: 200px;
         }
         .containerRecibo > h3{
             text-align: center;
@@ -40,37 +43,41 @@
     </style>
 </head>
 <body>
-    <%if(employeesNew){%>
-        <%employeesNew.forEach(e => {%>
-            <div class="containerRecibo">
-                <h3>RECIBO DE PAGO</h3>
-                <div class="containerFecha">
-                    <span><%= day%></span>
-                    <span><%= date%></span>
-                </div>
-                <p><b>Nombre:</b> <%=e.name.toUpperCase()%></p>
-                <p><b>Recibi de:</b> DESECHUFADOS S.R.L</p>
-                <p><b>La cantidad de:</b> <%=e.salary%></p>
-                <%if(e.fridayHoursWorked && !e.SaturdayHoursWorked) {%>
-                <p><b>Por concepto de:</b> <%=e.concept.toUpperCase()%> <%=e.fridayHoursWorked%> HORAS VIERNES</p>
-                <p class="extras"></p>
-                <% } else if(e.fridayHoursWorked && e.SaturdayHoursWorked) {%>
-                <p><b>Por concepto de:</b> <%=e.concept.toUpperCase()%> <%=e.fridayHoursWorked%> HORAS VIERNES + <%=e.SaturdayHoursWorked%> HORAS SABADO</p>
-                <p class="extras"></p>    
-                <% } else if(!e.fridayHoursWorked && e.SaturdayHoursWorked) {%>
-                <p><b>Por concepto de:</b> <%=e.concept.toUpperCase()%> <%=e.SaturdayHoursWorked%> HORAS SABADO</p>
-                <p class="extras"></p>   
-                <% } else {%>
-                <p><b>Por concepto de:</b> <%=e.concept.toUpperCase()%></p>
-                <p class="extras"></p>   
-                <% } %>
-                <div class="containerFirma">
-                    <p>Firma:</p>
-                    <p>Aclaracion:</p>
-                    <p>DNI:</p>
-                </div>        
-            </div>
-        <% }) %>
-    <% } %>
+   <div class="containerRecibos">
+     <%if(employeesNew){%>
+         <%employeesNew.forEach(e => {%>
+             <div class="containerRecibo">
+                 <h3>RECIBO DE PAGO</h3>
+                 <div class="containerFecha">
+                     <span><%= day%></span>
+                     <span><%= date%></span>
+                 </div>
+                 <p><b>Nombre:</b> <%=e.name.toUpperCase()%></p>
+                 <p><b>Recibi de:</b> DESECHUFADOS S.R.L</p>
+                 <p><b>La cantidad de:</b> <%=e.salary%></p>
+                 <%if(e.fridayHoursWorked && !e.SaturdayHoursWorked) {%>
+                 <p><b>Por concepto de:</b> <%=e.concept.toUpperCase()%> <%=e.fridayHoursWorked%> HORAS VIERNES</p>
+                 <p class="extras"></p>
+                 <% } else if(e.fridayHoursWorked && e.SaturdayHoursWorked) {%>
+                 <p><b>Por concepto de:</b> <%=e.concept.toUpperCase()%> <%=e.fridayHoursWorked%> HORAS VIERNES + <%=e.SaturdayHoursWorked%> HORAS SABADO</p>
+                 <p class="extras"></p>    
+                 <% } else if(!e.fridayHoursWorked && e.SaturdayHoursWorked) {%>
+                 <p><b>Por concepto de:</b> <%=e.concept.toUpperCase()%> <%=e.SaturdayHoursWorked%> HORAS SABADO</p>
+                 <p class="extras"></p>   
+                 <% } else {%>
+                 <p><b>Por concepto de:</b> <%=e.concept.toUpperCase()%></p>
+                 <p class="extras"></p>   
+                 <% } %>
+                 <div class="containerFirma">
+                     <p>Firma:</p>
+                     <p>Aclaracion:</p>
+                     <p>DNI:</p>
+                 </div>        
+             </div>
+         <% }) %>
+     <% } %>
+   </div>
+   <!-- <div id="ejsToPdf"></div> -->
+   <!-- <script src="../js/ejsToHtml.js"></script> -->
 </body>
 </html>

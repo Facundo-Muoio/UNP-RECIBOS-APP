@@ -4,7 +4,7 @@ const ejs = require('ejs');
 const path = require("path")
 const fs = require("fs")
 let pdf = require("html-pdf")
-let html = fs.readFileSync((path.join(__dirname,"../","public","views","Previsualizacion.ejs")), "utf-8")
+let html = fs.readFileSync((path.join(__dirname,"../","public","html", "pdf.html")), "utf-8")
 let options = { 
     format: 'Letter',
 };

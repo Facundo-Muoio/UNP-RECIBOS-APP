@@ -11,7 +11,7 @@ Previsualizacion.get("/previsualizacion", async (req, res) => {
     const employeesNew = makesEmployeesNew(employees)
     const extrasNew = makesExtrasNew(extras)
     const day = req.session.day ? req.session.day.toUpperCase() : "falta poner un dia" 
-    const date = fixDate(req.session.date)
+    const date = req.session.date ? fixDate(req.session.date) : "falta poner una fecha"
     res.render("Previsualizacion", {employeesNew, extrasNew, day, date})
 })
 

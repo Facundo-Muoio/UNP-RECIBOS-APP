@@ -1,5 +1,10 @@
-let contenedoresRecibos = document.getElementById("containerRecibos")
-let contenedorEjs = document.getElementById("ejsToPdf")
-console.log(contenedoresRecibos, contenedorEjs)
 
-contenedorEjs.innerHTML = contenedoresRecibos.textContent
+// let contenedoresRecibosEJS = document.querySelector("#contenedorPrincipal")
+// let contendorRecibosHTML = document.getElementById("contenderoRecibosHTML")
+// console.log(contenedoresRecibosEJS, contendorRecibosHTML)
+
+// contendorRecibosHTML = document.getElementById("contenderoRecibosHTML")
+// console.log(contenedoresRecibosEJS, contendorRecibosHTML)
+
+// contendorRecibosHTML.innerHTML = contenedoresRecibosEJS.innerHTML
+

@@ -4,14 +4,14 @@ const ejs = require('ejs');
 const path = require("path")
 const fs = require("fs")
 let pdf = require("html-pdf")
-let html = fs.readFileSync((path.join(__dirname,"../","public","html", "pdf.html")), "utf-8")
+let html = fs.readFileSync((path.join(__dirname, "../", "html","htmlToPdf.html")), "utf-8")
 let options = { 
-    format: 'Letter',
+    format: 'A4',
 };
 
 
 Descargar.get("/descargar", (req, res) => {
-    pdf.create(html, options).toFile(path.join(__dirname,"../","public","pdf","recibos.pdf"), function(err, res) {
+    pdf.create(html, options).toFile(path.join(__dirname,"../","public","pdf","exelente.pdf"), function(err, res) {
         if (err) return console.log(err);
         console.log(res);
     });

@@ -12,7 +12,7 @@ Reset.delete("/resetear", async (req, res) => {
     await Fecha.deleteMany({})
     await Employee.deleteMany({})
     await Extra.deleteMany({})
-    res.redirect("/home")
+    res.redirect("/")
 })
 
 module.exports = Reset

@@ -1,7 +1,7 @@
 const { Router } = require("express")
 const Home = Router()
 
-Home.get("/home", (req, res) => {
+Home.get("/", (req, res) => {
     res.render("Home")
 })
 

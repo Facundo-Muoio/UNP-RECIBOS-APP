@@ -5,7 +5,7 @@ const Extra = require("../models/Extras")
 const Fecha = require("../models/Fecha")
 
 Reset.get("/resetear", (req, res) => {
-    res.render("reset")
+    res.render("Reset")
 })
 
 Reset.delete("/resetear", async (req, res) => {

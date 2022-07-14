@@ -10,7 +10,7 @@ routerFecha.post("/fecha", async(req, res) => {
     const { day, date } = req.body
     const fecha = Day({ day, date})
     await fecha.save()  
-    res.redirect("/home")
+    res.redirect("/")
 })
 
 module.exports = routerFecha 

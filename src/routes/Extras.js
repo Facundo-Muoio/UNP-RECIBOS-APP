@@ -4,7 +4,7 @@ const routerExtras = Router()
 
 routerExtras.get("/extras", async (req, res) => {
     const extras = await Extras.find({})
-    res.render("extras", { extras })
+    res.render("Extras", { extras })
 })
 
 routerExtras.post("/extras", async (req, res) => {
@@ -24,7 +24,7 @@ routerExtras.put("/extras/:id", async (req, res) => {
 routerExtras.delete("/extras/:id", async (req, res) => {
     let { id } = req.params
     await Extras.deleteOne({ _id: id })
-    res.redirect("/Extras")
+    res.redirect("/extras")
 })
 
 module.exports = routerExtras

@@ -151,6 +151,6 @@ employeeSchema.methods.salaryCalc = function(concept, extras) {
     }  
 }
 
-const Employee = model("recibo", employeeSchema)
+const Employee = model("empleado", employeeSchema)
 
 module.exports = Employee

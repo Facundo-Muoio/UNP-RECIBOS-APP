@@ -3,7 +3,7 @@ const Employee = require("../models/Employee")
 const twoHours = require("../controllers/traerHoras.js")
 const Cajeros = Router()
 
-Cajeros.get("/cajeros", async (req, res) => {
+Cajeros.get("/cajeros" || "/jefe de barras", async (req, res) => {
     const employees = await Employee.find({})
     res.render("Cajeros", { employees })
 })

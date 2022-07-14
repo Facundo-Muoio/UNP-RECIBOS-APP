@@ -1,17 +1,26 @@
 const { Router } = require("express")
 const Descargar = Router()
-const ejs = require('ejs');
 const path = require("path")
+const pdf = require("html-pdf")
 const fs = require("fs")
-let pdf = require("html-pdf")
-let html = fs.readFileSync((path.join(__dirname, "../", "html","htmlToPdf.html")), "utf-8")
+const { generateHTML } = require("../controllers/traerHtml")
 let options = { 
     format: 'A4',
+    border: {
+        top: "1px",
+        rigth: "50px",
+        left: "40px"
+    }   
 };
 
 
-Descargar.get("/descargar", (req, res) => {
-    pdf.create(html, options).toFile(path.join(__dirname,"../","public","pdf","exelente.pdf"), function(err, res) {
+Descargar.get("/descargar", async (req, res) => {
+    const html = await generateHTML()
+    console.log(path.join(__dirname, "../", "public", "pdf", "recibos.pdf"))
+    fs.unlink(`${path.join(__dirname, "../", "public", "pdf", "recibos.pdf")}`, (error) => {
+        if(error) throw error;
+    })   
+    pdf.create(html, options).toFile(path.join(__dirname,"../","public","pdf","recibos.pdf"), function(err, res) {
         if (err) return console.log(err);
         console.log(res);
     });

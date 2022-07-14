@@ -9,7 +9,6 @@ for (let btn of btnExtras){
         for (let i = 0; i < parentTr.children.length - 1 ; i++) {
          oldData.push(parentTr.children[i].textContent)
        }
-       console.log(oldData)
        parentTr.innerHTML = `
        <td><input type="text" name="name" id="name" required value=${oldData[0]} form="${oldData[3]}"></td>
        <td><input type="text" name="concept" required value="${oldData[1]}" form="${oldData[3]}"></td>

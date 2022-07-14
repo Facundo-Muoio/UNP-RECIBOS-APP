@@ -24,7 +24,7 @@ routerExtras.put("/extras/:id", async (req, res) => {
 routerExtras.delete("/extras/:id", async (req, res) => {
     let { id } = req.params
     await Extras.deleteOne({ _id: id })
-    res.redirect("/extras")
+    res.redirect("/Extras")
 })
 
 module.exports = routerExtras

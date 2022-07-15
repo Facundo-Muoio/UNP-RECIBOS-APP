@@ -7,8 +7,8 @@ const { generateHTML } = require("../controllers/traerHtml")
 let options = { 
     format: 'A4',
     border: {
-        top: "1px",
-        rigth: "40px",
+        top: "2px",
+        rigth: "60px",
         left: "50px"
     }, 
 };

@@ -9,7 +9,7 @@ let options = {
     border: {
         top: "2px",
         rigth: "60px",
-        left: "50px"
+        left: "40px"
     }, 
 };
 

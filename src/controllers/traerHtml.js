@@ -3,7 +3,6 @@ const Extras = require("../models/Extras")
 const Day = require("../models/Fecha")
 const numeroALetras = require("../controllers/numerosALetras")
 const os = require("os")
-console.log(os.platform())
 
 
 async function getDate(){
@@ -31,7 +30,7 @@ async function generateHTML(){
                 box-sizing: border-box;
                 padding: 0px;
                 margin: 0px;
-                font-size: ${os.platform() !== "win32" ? "9px" : "12px"};
+                font-size: ${os.platform() !== "win32" ? "13px" : "16px"};
                 font-family: 'Times New Roman', Times, serif;
             }
             
@@ -57,7 +56,7 @@ async function generateHTML(){
             }
             .containerRecibo > p {
                 border-bottom: 1px solid black;
-            
+                
             }
             .extras{
             padding: 10px;

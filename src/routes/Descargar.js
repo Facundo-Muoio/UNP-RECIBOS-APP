@@ -4,7 +4,6 @@ const path = require("path")
 const pdf = require("html-pdf")
 const fs = require("fs")
 const { generateHTML } = require("../controllers/traerHtml")
-const os = require("os")
 let options = { 
     format: 'A4',
     border: {
@@ -17,7 +16,6 @@ let options = {
 
 Descargar.get("/descargar", async (req, res) => {
     const html = await generateHTML() 
-    os.platform() === "win32" ? console.log("es de windows") : console.log("no es de windows")
     console.log(path.join(__dirname, "../", "public", "pdf", "recibos.pdf"))
     fs.unlink(`${path.join(__dirname, "../", "public", "pdf", "recibos.pdf")}`, (error) => {
         if(error) throw error;

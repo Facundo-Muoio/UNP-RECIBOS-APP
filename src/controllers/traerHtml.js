@@ -41,7 +41,7 @@ async function generateHTML(){
                 padding: 4px 12px;
                 margin-bottom: 1px;
                 width: ${os.platform() !== "win32" ? "538px" : "690px"} ;
-                height: ${os.platform() !== "win32" ? "176px" : "277px"} ;
+                height: ${os.platform() !== "win32" ? "196px" : "277px"} ;
             }
             .containerRecibo > h3{
                 text-align: center;
@@ -100,7 +100,6 @@ async function generateHTML(){
         })
         if(e.fridayHoursWorked && !e.SaturdayHoursWorked){
             let addtemplate = `
-           <div class="containerRecibos">
              <div class="containerRecibo">
                  <h3>RECIBO DE PAGO</h3>
                  <div class="containerFecha">
@@ -120,12 +119,10 @@ async function generateHTML(){
                      <p>DNI:</p>
                  </div>        
              </div>
-           </div>
             `
             template += addtemplate
         }else if (e.fridayHoursWorked && e.SaturdayHoursWorked){
             let addtemplate = `
-           <div class="containerRecibos">
              <div class="containerRecibo">
                  <h3>RECIBO DE PAGO</h3>
                  <div class="containerFecha">
@@ -145,12 +142,10 @@ async function generateHTML(){
                      <p>DNI:</p>
                  </div>        
              </div>
-           </div>
             `
             template += addtemplate
         } else if (!e.fridayHoursWorked && e.SaturdayHoursWorked){
             let addtemplate = `
-           <div class="containerRecibos">
              <div class="containerRecibo">
                  <h3>RECIBO DE PAGO</h3>
                  <div class="containerFecha">
@@ -170,7 +165,6 @@ async function generateHTML(){
                      <p>DNI:</p>
                  </div>        
              </div>
-           </div>
             `
             template += addtemplate
         }
@@ -183,7 +177,6 @@ async function generateHTML(){
             centSingular: "CENTAVO"
         })
         let extraTemplate = `
-        <div class="containerRecibos">
             <div class="containerRecibo">
                 <h3>RECIBO DE PAGO</h3>
                 <div class="containerFecha">
@@ -203,7 +196,6 @@ async function generateHTML(){
                     <p>DNI:</p>
                 </div>        
             </div>
-        </div>
         `
         template += extraTemplate
     }) 

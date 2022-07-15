@@ -1,6 +1,6 @@
 *{
     box-sizing: border-box;
-    padding: 0px;
+    padding: 0px; 
 }
 
 #unp-logo {
@@ -39,7 +39,7 @@ tr > td {
 
 input{
     height: 28px;
-} *
+} 
 
 tr { 
     line-height: 48px;

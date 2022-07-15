@@ -33,7 +33,7 @@ async function generateHTML(){
             }
             
             .containerRecibos{
-            width: 690px;
+            width: 600px;
             margin: 0px auto;
             display: flex;
             flex-direction: column;
@@ -45,8 +45,8 @@ async function generateHTML(){
                 border-radius: 4px;
                 padding: 4px 12px;
                 margin-bottom: 1px;
-                width: 690px !important;
-                max-width: 690px !important;
+                width: 600px !important;
+                max-width: 600px !important;
                 height: 277px !important;
                 max-height: 277px !important;
             }

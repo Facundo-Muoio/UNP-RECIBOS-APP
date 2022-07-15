@@ -8,14 +8,14 @@ let options = {
     format: 'A4',
     border: {
         top: "1px",
-        rigth: "50px",
-        left: "40px"
-    }   
+        rigth: "0px",
+        left: "0px"
+    }, 
 };
 
 
 Descargar.get("/descargar", async (req, res) => {
-    const html = await generateHTML()
+    const html = await generateHTML() 
     console.log(path.join(__dirname, "../", "public", "pdf", "recibos.pdf"))
     fs.unlink(`${path.join(__dirname, "../", "public", "pdf", "recibos.pdf")}`, (error) => {
         if(error) throw error;

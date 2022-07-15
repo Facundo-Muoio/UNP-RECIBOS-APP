@@ -41,7 +41,7 @@ async function generateHTML(){
                 padding: 4px 12px;
                 margin-bottom: 1px;
                 width: ${os.platform() !== "win32" ? "538px" : "690px"} ;
-                height: ${os.platform() !== "win32" ? "216px" : "277px"} ;
+                height: ${os.platform() !== "win32" ? "176px" : "277px"} ;
             }
             .containerRecibo > h3{
                 text-align: center;

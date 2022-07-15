@@ -33,7 +33,7 @@ async function generateHTML(){
             }
             
             .containerRecibos{
-            width: 80vw;
+            width: 690px;
             margin: 0px auto;
             display: flex;
             flex-direction: column;
@@ -107,71 +107,77 @@ async function generateHTML(){
         })
         if(e.fridayHoursWorked && !e.SaturdayHoursWorked){
             let addtemplate = `
-            <div class="containerRecibo">
-                <h3>RECIBO DE PAGO</h3>
-                <div class="containerFecha">
-                    <span>${dia}</span>
-                    <span>${fecha}</span>
-                </div>
-                <p><b>Nombre:</b> ${e.name.toUpperCase()}</p>
-                <p><b>Recibi de:</b> DESENCHUFADOS S.R.L</p>
-                <p><b>La cantidad de:</b> $ ${e.salary} ${newSalary} </p>
-                
-                <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${e.fridayHoursWorked} HS VIERNES </p>
-                <p class="extras"></p>
-                
-                <div class="containerFirma">
-                    <p>Firma:</p>
-                    <p>Aclaracion:</p>
-                    <p>DNI:</p>
-                </div>        
-            </div>
+           <div class="containerRecibos">
+             <div class="containerRecibo">
+                 <h3>RECIBO DE PAGO</h3>
+                 <div class="containerFecha">
+                     <span>${dia}</span>
+                     <span>${fecha}</span>
+                 </div>
+                 <p><b>Nombre:</b> ${e.name.toUpperCase()}</p>
+                 <p><b>Recibi de:</b> DESENCHUFADOS S.R.L</p>
+                 <p><b>La cantidad de:</b> $ ${e.salary} ${newSalary} </p>
+                 
+                 <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${e.fridayHoursWorked} HS VIERNES </p>
+                 <p class="extras"></p>
+                 
+                 <div class="containerFirma">
+                     <p>Firma:</p>
+                     <p>Aclaracion:</p>
+                     <p>DNI:</p>
+                 </div>        
+             </div>
+           </div>
             `
             template += addtemplate
         }else if (e.fridayHoursWorked && e.SaturdayHoursWorked){
             let addtemplate = `
-            <div class="containerRecibo">
-                <h3>RECIBO DE PAGO</h3>
-                <div class="containerFecha">
-                    <span>${dia}</span>
-                    <span>${fecha}</span>
-                </div>
-                <p><b>Nombre:</b> ${e.name.toUpperCase()}</p>
-                <p><b>Recibi de:</b> DESENCHUFADOS S.R.L</p>
-                <p><b>La cantidad de:</b> $ ${e.salary} ${newSalary} </p>
-                
-                <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${e.fridayHoursWorked} HS VIERNES + ${e.SaturdayHoursWorked} HS SABADO </p>
-                <p class="extras"></p>
-                
-                <div class="containerFirma">
-                    <p>Firma:</p>
-                    <p>Aclaracion:</p>
-                    <p>DNI:</p>
-                </div>        
-            </div>
+           <div class="containerRecibos">
+             <div class="containerRecibo">
+                 <h3>RECIBO DE PAGO</h3>
+                 <div class="containerFecha">
+                     <span>${dia}</span>
+                     <span>${fecha}</span>
+                 </div>
+                 <p><b>Nombre:</b> ${e.name.toUpperCase()}</p>
+                 <p><b>Recibi de:</b> DESENCHUFADOS S.R.L</p>
+                 <p><b>La cantidad de:</b> $ ${e.salary} ${newSalary} </p>
+                 
+                 <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${e.fridayHoursWorked} HS VIERNES + ${e.SaturdayHoursWorked} HS SABADO </p>
+                 <p class="extras"></p>
+                 
+                 <div class="containerFirma">
+                     <p>Firma:</p>
+                     <p>Aclaracion:</p>
+                     <p>DNI:</p>
+                 </div>        
+             </div>
+           </div>
             `
             template += addtemplate
         } else if (!e.fridayHoursWorked && e.SaturdayHoursWorked){
             let addtemplate = `
-            <div class="containerRecibo">
-                <h3>RECIBO DE PAGO</h3>
-                <div class="containerFecha">
-                    <span>${dia}</span>
-                    <span>${fecha}</span>
-                </div>
-                <p><b>Nombre:</b> ${e.name.toUpperCase()}</p>
-                <p><b>Recibi de:</b> DESENCHUFADOS S.R.L</p>
-                <p><b>La cantidad de:</b> $ ${e.salary} ${newSalary} </p>
-                
-                <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${e.SaturdayHoursWorked} HS SABADO </p>
-                <p class="extras"></p>
-                
-                <div class="containerFirma">
-                    <p>Firma:</p>
-                    <p>Aclaracion:</p>
-                    <p>DNI:</p>
-                </div>        
-            </div>
+           <div class="containerRecibos">
+             <div class="containerRecibo">
+                 <h3>RECIBO DE PAGO</h3>
+                 <div class="containerFecha">
+                     <span>${dia}</span>
+                     <span>${fecha}</span>
+                 </div>
+                 <p><b>Nombre:</b> ${e.name.toUpperCase()}</p>
+                 <p><b>Recibi de:</b> DESENCHUFADOS S.R.L</p>
+                 <p><b>La cantidad de:</b> $ ${e.salary} ${newSalary} </p>
+                 
+                 <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${e.SaturdayHoursWorked} HS SABADO </p>
+                 <p class="extras"></p>
+                 
+                 <div class="containerFirma">
+                     <p>Firma:</p>
+                     <p>Aclaracion:</p>
+                     <p>DNI:</p>
+                 </div>        
+             </div>
+           </div>
             `
             template += addtemplate
         }
@@ -184,24 +190,26 @@ async function generateHTML(){
             centSingular: "CENTAVO"
         })
         let extraTemplate = `
-        <div class="containerRecibo">
-            <h3>RECIBO DE PAGO</h3>
-            <div class="containerFecha">
-                <span>${dia}</span>
-                <span>${fecha}</span>
+        <div class="containerRecibos">
+            <div class="containerRecibo">
+                <h3>RECIBO DE PAGO</h3>
+                <div class="containerFecha">
+                    <span>${dia}</span>
+                    <span>${fecha}</span>
+                </div>
+                <p><b>Nombre:</b> ${e.name.toUpperCase()}</p>
+                <p><b>Recibi de:</b> DESENCHUFADOS S.R.L</p>
+                <p><b>La cantidad de:</b> $ ${e.salary} ${newSalary} </p>
+                
+                <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} </p>
+                <p class="extras"></p>
+                
+                <div class="containerFirma">
+                    <p>Firma:</p>
+                    <p>Aclaracion:</p>
+                    <p>DNI:</p>
+                </div>        
             </div>
-            <p><b>Nombre:</b> ${e.name.toUpperCase()}</p>
-            <p><b>Recibi de:</b> DESENCHUFADOS S.R.L</p>
-            <p><b>La cantidad de:</b> $ ${e.salary} ${newSalary} </p>
-            
-            <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} </p>
-            <p class="extras"></p>
-            
-            <div class="containerFirma">
-                <p>Firma:</p>
-                <p>Aclaracion:</p>
-                <p>DNI:</p>
-            </div>        
         </div>
         `
         template += extraTemplate

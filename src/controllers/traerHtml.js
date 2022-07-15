@@ -27,6 +27,9 @@ async function generateHTML(){
         box-sizing: border-box;
         padding: 0px;
         margin: 0px;
+        fonst-size: 12px 
+        font-size: 12px;
+        font-family: 'Times New Roman', Times, serif;
     }
     
     .containerRecibos{

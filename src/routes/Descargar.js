@@ -3,13 +3,14 @@ const Descargar = Router()
 const path = require("path")
 const pdf = require("html-pdf")
 const fs = require("fs")
+const os = require("os")
 const { generateHTML } = require("../controllers/traerHtml")
 let options = { 
     format: 'A4',
     border: {
         top: "2px",
-        rigth: "70px",
-        left: "30px"
+        rigth:`${os.platform() !== "win32" ? "70px" : "60px"}`,
+        left: `${os.platform() !== "win32" ? "30px" : "40px"}`
     }, 
 };
 

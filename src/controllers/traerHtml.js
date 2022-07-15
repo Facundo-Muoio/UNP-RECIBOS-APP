@@ -2,6 +2,9 @@ const Employee = require("../models/Employee")
 const Extras = require("../models/Extras")
 const Day = require("../models/Fecha")
 const numeroALetras = require("../controllers/numerosALetras")
+const os = require("os")
+console.log(os.platform())
+
 
 async function getDate(){
 
@@ -28,16 +31,8 @@ async function generateHTML(){
                 box-sizing: border-box;
                 padding: 0px;
                 margin: 0px;
-                font-size: 12px !important;
-                font-family: 'Times New Roman', Times, serif !important;
-            }
-            
-            .containerRecibos{
-            width: 600px;
-            margin: 0px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+                font-size: ${os.platform() !== "win32" ? "9px" : "12px"};
+                font-family: 'Times New Roman', Times, serif;
             }
             
             .containerRecibo{
@@ -45,10 +40,8 @@ async function generateHTML(){
                 border-radius: 4px;
                 padding: 4px 12px;
                 margin-bottom: 1px;
-                width: 600px !important;
-                max-width: 600px !important;
-                height: 277px !important;
-                max-height: 277px !important;
+                width: ${os.platform() !== "win32" ? "538px" : "690px"} ;
+                height: ${os.platform() !== "win32" ? "216px" : "277px"} ;
             }
             .containerRecibo > h3{
                 text-align: center;

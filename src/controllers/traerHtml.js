@@ -45,7 +45,9 @@ async function generateHTML(){
         padding: 4px 12px;
         margin-bottom: 1px;
         width: 690px;
+        max-width: 690px;
         height: 277px;
+        max-height: 277px;
     }
     .containerRecibo > h3{
         text-align: center;

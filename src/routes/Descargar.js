@@ -8,8 +8,8 @@ let options = {
     format: 'A4',
     border: {
         top: "2px",
-        rigth: "60px",
-        left: "40px"
+        rigth: "70px",
+        left: "30px"
     }, 
 };
 

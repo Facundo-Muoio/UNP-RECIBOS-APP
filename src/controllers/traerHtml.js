@@ -27,8 +27,8 @@ async function generateHTML(){
         box-sizing: border-box;
         padding: 0px;
         margin: 0px;
-        font-size: 12px;
-        font-family: 'Times New Roman', Times, serif;
+        font-size: 12px !important;
+        font-family: 'Times New Roman', Times, serif !important;
     }
     
     .containerRecibos{
@@ -44,10 +44,10 @@ async function generateHTML(){
         border-radius: 4px;
         padding: 4px 12px;
         margin-bottom: 1px;
-        width: 690px;
-        max-width: 690px;
-        height: 277px;
-        max-height: 277px;
+        width: 690px !important;
+        max-width: 690px !important;
+        height: 277px !important;
+        max-height: 277px !important;
     }
     .containerRecibo > h3{
         text-align: center;

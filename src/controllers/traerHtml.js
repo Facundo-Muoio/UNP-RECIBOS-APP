@@ -30,7 +30,7 @@ async function generateHTML(){
                 box-sizing: border-box;
                 padding: 0px;
                 margin: 0px;
-                font-size: ${os.platform() !== "win32" ? "13px" : "16px"};
+                font-size: ${os.platform() !== "win32" ? "11px" : "16px"};
                 font-family: 'Times New Roman', Times, serif;
             }
             

@@ -21,61 +21,63 @@ async function getDate(){
 async function generateHTML(){
     let template = ""
     template = `
-    <style>
-        
-    * {
-        box-sizing: border-box;
-        padding: 0px;
-        margin: 0px;
-        font-size: 12px !important;
-        font-family: 'Times New Roman', Times, serif !important;
-    }
-    
-    .containerRecibos{
-       width: 80vw;
-       margin: 0px auto;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-    }
-    
-    .containerRecibo{
-        border: 2px solid black;
-        border-radius: 4px;
-        padding: 4px 12px;
-        margin-bottom: 1px;
-        width: 690px !important;
-        max-width: 690px !important;
-        height: 277px !important;
-        max-height: 277px !important;
-    }
-    .containerRecibo > h3{
-        text-align: center;
-    }
-    .containerFecha {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-end;
-        margin-right: 12px;
-        margin-bottom: 20px
-    }
-    .containerRecibo > p {
-        border-bottom: 1px solid black;
-    
-    }
-    .extras{
-       padding: 10px;
-    }
-    .containerFirma{
-        text-align: center;
-        margin-top: 20px
-    }
-    .containerFirma p {
-        margin-bottom: 1px;
-    }
-    </style>
+    <head>
+        <style>
+            
+            * {
+                box-sizing: border-box;
+                padding: 0px;
+                margin: 0px;
+                font-size: 12px !important;
+                font-family: 'Times New Roman', Times, serif !important;
+            }
+            
+            .containerRecibos{
+            width: 80vw;
+            margin: 0px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            }
+            
+            .containerRecibo{
+                border: 2px solid black;
+                border-radius: 4px;
+                padding: 4px 12px;
+                margin-bottom: 1px;
+                width: 690px !important;
+                max-width: 690px !important;
+                height: 277px !important;
+                max-height: 277px !important;
+            }
+            .containerRecibo > h3{
+                text-align: center;
+            }
+            .containerFecha {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-end;
+                margin-right: 12px;
+                margin-bottom: 20px
+            }
+            .containerRecibo > p {
+                border-bottom: 1px solid black;
+            
+            }
+            .extras{
+            padding: 10px;
+            }
+            .containerFirma{
+                text-align: center;
+                margin-top: 20px
+            }
+            .containerFirma p {
+                margin-bottom: 1px;
+            }
+        </style>
+    </head>
     `
     const empleados = await Employee.find({})
     empleados.sort((a, b) => {

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNP-RECIBOS-APP</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs'); %>
+    <h3 class="text-center my-4 mx-auto"><%=fecha.dia %> <%=fecha.fecha%></h3>
+    <h3 class="text-center my-4 mx-auto">TOTAL: <%= sueldo %></h3>
+    <table class="table table-hover tableResumen">
+        <thead>
+          <tr>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">CONCEPTO</th>
+            <th scope="col">H.VIERNES</th>
+            <th scope="col">H.SABADO</th>
+            <th scope="col">EXTRAS</th>
+            <th scope="col">SUELDO</th>
+            <th scope="col">MARCAR</th>
+          </tr>
+        </thead>
+        <tbody class="tbodyResumen">
+            <% empleados.forEach( e => {%>
+            <tr>
+                <td><%=e.name.toUpperCase()%></td>
+                <td><%=e.concept.toUpperCase()%></td>
+                <td><%=e.fridayHoursWorked%></td>
+                <td><%=e.SaturdayHoursWorked%></td>
+                <td><%=e.extras%></td>
+                <td><%=e.salary%></td>
+                <td class="form-check my-0">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                    </label>
+                </td>
+            </tr>
+            <% }) %>
+            <% extras.forEach( e => {%>
+                <tr>
+                    <td><%=e.name.toUpperCase()%></td>
+                    <td><%=e.concept.toUpperCase()%></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><%=e.extras%></td>
+                    <td><%=e.salary%></td>
+                    <td class="form-check my-0">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        </label>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <script src="../../controllers//resumen.js  "></script>
+</body>
+</html>

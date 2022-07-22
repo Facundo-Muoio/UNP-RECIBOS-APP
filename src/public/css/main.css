@@ -49,6 +49,11 @@ th {
     padding: 4px 12px !important;
 }
 
+.tableResumen{
+    width: 900px !important;
+    margin: 20px auto;
+}
+
 @media (max-width: 1024px){
     th{
         font-size: 12px !important;
@@ -78,5 +83,4 @@ th {
     .input-extras{
         width: 70px !important;
     }
-
 }

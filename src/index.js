@@ -21,6 +21,7 @@ const Home = require("./routes/Home")
 const Descargar = require("./routes/Descargar")
 const routerFecha = require("./routes/Fecha")
 const Reset = require("./routes/Reset")
+const Resumen = require("./routes/Resumen")
 
 //settings
 app.set("port", process.env.PORT || process.env.YOUR_PORT) 
@@ -55,6 +56,7 @@ app.use(Home)
 app.use(routerFecha)
 app.use(Descargar)
 app.use(Reset)
+app.use(Resumen)
 
 //starting server 
 connectDB()

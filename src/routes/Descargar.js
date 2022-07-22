@@ -5,7 +5,6 @@ const pdf = require("html-pdf")
 const fs = require("fs")
 const os = require("os")
 const { generateHTML } = require("../controllers/traerHtml")
-// const { resumenHTML } = require("../controllers/resumen")
 let options = { 
     format: 'A4',
     border: {
@@ -18,8 +17,6 @@ let options = {
 
 Descargar.get("/descargar", async (req, res) => {
     const html = await generateHTML() 
-    // const htmlResumen = await resumenHTML()
-    console.log(htmlResumen)
     fs.unlink(`${path.join(__dirname, "../", "public", "pdf", "recibos.pdf")}`, (error) => {
         if(error) throw error;
     })   

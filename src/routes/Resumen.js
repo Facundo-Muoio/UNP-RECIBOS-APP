@@ -15,7 +15,7 @@ Resumen.get("/resumen", async (req, res) => {
     extras.forEach(e => {
        sueldo += e.salary
     })
-    res.render("resumen", {empleados, extras, fecha, sueldo})
+    res.render("Resumen", {empleados, extras, fecha, sueldo})
 })
 
 module.exports = Resumen

@@ -86,42 +86,42 @@ employeeSchema.methods.salaryCalc = function(concept, extras) {
         switch (concept) {
             case "Mozo":
                 if(extras){
-                   return this.salary = (hoursWorked * 275) + Number(extras)
+                   return this.salary = (hoursWorked * 370) + Number(extras)
                 }
-                this.salary = hoursWorked * 275
+                this.salary = hoursWorked * 370
                 break;
             case "Bartender":
                 if(extras){
-                    return this.salary = (hoursWorked * 300) + Number(extras)
+                    return this.salary = (hoursWorked * 400) + Number(extras)
                 } 
-                this.salary = hoursWorked * 300
+                this.salary = hoursWorked * 400
                 break;
             case "Jefe de barra":
             case "Cajero":
                 if(extras){
-                    return this.salary = (hoursWorked * 350) + Number(extras)
+                    return this.salary = (hoursWorked * 470) + Number(extras)
                 } 
-                this.salary = hoursWorked * 350
+                this.salary = hoursWorked * 470
                 break;
             case "Anfitriona":
             case "Recepcionista":
                 if(extras){
-                    return this.salary = 2000 + Number(extras)
+                    return this.salary = (hoursWorked * 500) + Number(extras)
                 } 
-                this.salary = 2000  
+                this.salary = hoursWorked * 500 
                 break;
             case "Boletero":
                 if(extras){
-                    return this.salary = (hoursWorked * 400) + Number(extras)
+                    return this.salary = (hoursWorked * 500) + Number(extras)
                 }
-                this.salary = hoursWorked * 400
+                this.salary = hoursWorked * 500
                 break;
             case "Runner":
             case "Guardarropa":
                 if(extras){
-                    return this.salary = (hoursWorked * 400) + Number(extras)
+                    return this.salary = (hoursWorked * 370) + Number(extras)
                 } 
-                this.salary = hoursWorked * 275
+                this.salary = hoursWorked * 370
                 break;
             case "Presencia":
                 if(extras){
@@ -131,21 +131,21 @@ employeeSchema.methods.salaryCalc = function(concept, extras) {
                 break;
             case "Jefe de cocina":
                 if(extras){
-                    return this.salary = (hoursWorked * 450) + Number(extras)
+                    return this.salary = (hoursWorked * 600) + Number(extras)
                 }
-                this.salary = hoursWorked * 450 
+                this.salary = hoursWorked * 600 
                 break;  
             case "Ayudante de cocina":
                 if(extras){
-                    return this.salary = (hoursWorked * 340) + Number(extras)
+                    return this.salary = (hoursWorked * 400) + Number(extras)
                 }
-                this.salary = hoursWorked * 340
+                this.salary = hoursWorked * 400
                 break;
             case "Pizzero": 
                 if(extras){
-                    return this.salary = (hoursWorked * 300) + Number(extras)
+                    return this.salary = (hoursWorked * 400) + Number(extras)
                 }  
-                this.salary = hoursWorked * 300
+                this.salary = hoursWorked * 400
                 break;   
         }       
     }  

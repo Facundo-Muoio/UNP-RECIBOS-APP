@@ -49,37 +49,37 @@ function salaryCalc(concept, hoursWorked,  extras) {
     switch (concept) {
         case "Mozo":
             if(extras){
-               return salary = (hoursWorked * 275) + Number(extras)
+               return salary = (hoursWorked * 370) + Number(extras)
             }
-            return salary = hoursWorked * 275
+            return salary = hoursWorked * 370
         case "Bartender":
-            if(extras){
-                return salary = (hoursWorked * 300) + Number(extras)
-            } 
-            return salary = hoursWorked * 300
-        case "Jefe de barra":
-        case "Cajero":
-            if(extras){
-                return salary = (hoursWorked * 350) + Number(extras)
-            } 
-            return salary = hoursWorked * 350
-        case "Anfitriona":
-        case "Recepcionista":
-            if(extras){
-                return salary = 2000 + Number(extras)
-            }
-            return salary = 2000    
-        case "Boletero":
             if(extras){
                 return salary = (hoursWorked * 400) + Number(extras)
             } 
             return salary = hoursWorked * 400
+        case "Jefe de barra":
+        case "Cajero":
+            if(extras){
+                return salary = (hoursWorked * 470) + Number(extras)
+            } 
+            return salary = hoursWorked * 470
+        case "Anfitriona":
+        case "Recepcionista":
+            if(extras){
+                return salary = (hoursWorked * 500)  + Number(extras)
+            }
+            return salary = hoursWorked * 500  
+        case "Boletero":
+            if(extras){
+                return salary = (hoursWorked * 500) + Number(extras)
+            } 
+            return salary = hoursWorked * 500
         case "Runner":
         case "Guardarropa":
             if(extras){
-                return salary = (hoursWorked * 275) + Number(extras)
+                return salary = (hoursWorked * 370) + Number(extras)
             } 
-            return salary = hoursWorked * 275
+            return salary = hoursWorked * 370
         case "Presencia":
             if(extras){
                 return salary = 3000 + Number(extras)
@@ -87,19 +87,19 @@ function salaryCalc(concept, hoursWorked,  extras) {
             return salary = 3000
         case "Jefe de cocina":  
             if(extras){
-                return salary = (hoursWorked * 450) + Number(extras)
+                return salary = (hoursWorked * 600) + Number(extras)
             }
-            return salary = hoursWorked * 450
+            return salary = hoursWorked * 600
         case "Ayudante de cocina":  
             if(extras){
-                return salary = (hoursWorked * 340) + Number(extras)
+                return salary = (hoursWorked * 400) + Number(extras)
             }
-            return salary = hoursWorked * 340
+            return salary = hoursWorked * 400
         case "Pizzero":  
             if(extras){
-                return salary = (hoursWorked * 300) + Number(extras)
+                return salary = (hoursWorked * 400) + Number(extras)
             }
-            return salary = hoursWorked * 300            
+            return salary = hoursWorked * 400            
     }   
 }
 

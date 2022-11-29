@@ -2,7 +2,10 @@ const puppeteer = require("puppeteer");
 
 async function createRecibos(html) {
   //abrimos el navegador
-  let navegador = await puppeteer.launch();
+  let navegador = await puppeteer.launch({
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   let page = await navegador.newPage();
 
   await page.setContent(html);

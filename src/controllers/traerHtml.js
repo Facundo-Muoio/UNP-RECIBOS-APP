@@ -1,28 +1,24 @@
-const Employee = require("../models/Employee")
-const Extras = require("../models/Extras")
-const Day = require("../models/Fecha")
-const numeroALetras = require("../controllers/numerosALetras")
-const os = require("os")
+const Employee = require("../models/Employee");
+const Extras = require("../models/Extras");
+const Day = require("../models/Fecha");
+const numeroALetras = require("../controllers/numerosALetras");
+const os = require("os");
 
-
-async function getDate(){
-
-    const dates = await Day.find({})
-    const lastDate = dates[dates.length - 1]
-    if(!lastDate){
-        return { dia: "falta ingresar un dia", fecha: "falta ingresar una fecha" }
-    }
-    const dia = lastDate.day.toUpperCase()
-    const fecha = lastDate.date
-    const fechaArreglada = fecha.split("-").reverse().join("-")
-    return { dia: dia, fecha: fechaArreglada }
+async function getDate() {
+  const dates = await Day.find({});
+  const lastDate = dates[dates.length - 1];
+  if (!lastDate) {
+    return { dia: "falta ingresar un dia", fecha: "falta ingresar una fecha" };
+  }
+  const dia = lastDate.day.toUpperCase();
+  const fecha = lastDate.date;
+  const fechaArreglada = fecha.split("-").reverse().join("-");
+  return { dia: dia, fecha: fechaArreglada };
 }
 
-
-
-async function generateHTML(){
-    let template = ""
-    template = `
+async function generateHTML() {
+  let template = "";
+  template = `
     <head>
         <style>
             
@@ -39,8 +35,8 @@ async function generateHTML(){
                 border-radius: 4px;
                 padding: 4px 12px;
                 margin-bottom: 1px;
-                width: ${os.platform() !== "win32" ? "538px" : "690px"} ;
-                height: ${os.platform() !== "win32" ? "207px" : "277px"} ;
+                width: ${os.platform() !== "win32" ? "690px" : "690px"} ;
+                height: ${os.platform() !== "win32" ? "277px" : "277px"} ;
             }
             .containerRecibo > h3{
                 text-align: center;
@@ -70,35 +66,35 @@ async function generateHTML(){
             }
         </style>
     </head>
-    `
-    const empleados = await Employee.find({})
-    empleados.sort((a, b) => {
-        if (a.concept > b.concept) {
-          return 1;
-        }
-        if (a.concept < b.concept) {
-          return -1;
-        }
-        if (a.name > b.name) {
-            return 1;
-        }
-        if (a.name < b.name) {
-            return -1;
-        }
-        return 0;
-      });
-      
-    const extras = await Extras.find({})
-    const { dia, fecha } = await getDate()
-    empleados.forEach(e => {
-        const newSalary = numeroALetras(e.salary, {
-            plural: "PESOS",
-            singular: "PESO",
-            centPlural: "CENTAVOS",
-            centSingular: "CENTAVO"
-        })
-        if(e.fridayHoursWorked && !e.SaturdayHoursWorked){
-            let addtemplate = `
+    `;
+  const empleados = await Employee.find({});
+  empleados.sort((a, b) => {
+    if (a.concept > b.concept) {
+      return 1;
+    }
+    if (a.concept < b.concept) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.name < b.name) {
+      return -1;
+    }
+    return 0;
+  });
+
+  const extras = await Extras.find({});
+  const { dia, fecha } = await getDate();
+  empleados.forEach((e) => {
+    const newSalary = numeroALetras(e.salary, {
+      plural: "PESOS",
+      singular: "PESO",
+      centPlural: "CENTAVOS",
+      centSingular: "CENTAVO",
+    });
+    if (e.fridayHoursWorked && !e.SaturdayHoursWorked) {
+      let addtemplate = `
              <div class="containerRecibo">
                  <h3>RECIBO DE PAGO</h3>
                  <div class="containerFecha">
@@ -109,7 +105,9 @@ async function generateHTML(){
                  <p><b>Recibi de:</b> DESENCHUFADOS S.R.L</p>
                  <p><b>La cantidad de:</b> $ ${e.salary} ${newSalary} </p>
                  
-                 <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${e.fridayHoursWorked} HS VIERNES </p>
+                 <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${
+        e.fridayHoursWorked
+      } HS VIERNES </p>
                  <p class="extras"></p>
                  
                  <div class="containerFirma">
@@ -118,10 +116,10 @@ async function generateHTML(){
                      <p>DNI:</p>
                  </div>        
              </div>
-            `
-            template += addtemplate
-        }else if (e.fridayHoursWorked && e.SaturdayHoursWorked){
-            let addtemplate = `
+            `;
+      template += addtemplate;
+    } else if (e.fridayHoursWorked && e.SaturdayHoursWorked) {
+      let addtemplate = `
              <div class="containerRecibo">
                  <h3>RECIBO DE PAGO</h3>
                  <div class="containerFecha">
@@ -132,7 +130,9 @@ async function generateHTML(){
                  <p><b>Recibi de:</b> DESENCHUFADOS S.R.L</p>
                  <p><b>La cantidad de:</b> $ ${e.salary} ${newSalary} </p>
                  
-                 <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${e.fridayHoursWorked} HS VIERNES + ${e.SaturdayHoursWorked} HS SABADO </p>
+                 <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${
+        e.fridayHoursWorked
+      } HS VIERNES + ${e.SaturdayHoursWorked} HS SABADO </p>
                  <p class="extras"></p>
                  
                  <div class="containerFirma">
@@ -141,10 +141,10 @@ async function generateHTML(){
                      <p>DNI:</p>
                  </div>        
              </div>
-            `
-            template += addtemplate
-        } else if (!e.fridayHoursWorked && e.SaturdayHoursWorked){
-            let addtemplate = `
+            `;
+      template += addtemplate;
+    } else if (!e.fridayHoursWorked && e.SaturdayHoursWorked) {
+      let addtemplate = `
              <div class="containerRecibo">
                  <h3>RECIBO DE PAGO</h3>
                  <div class="containerFecha">
@@ -155,7 +155,9 @@ async function generateHTML(){
                  <p><b>Recibi de:</b> DESENCHUFADOS S.R.L</p>
                  <p><b>La cantidad de:</b> $ ${e.salary} ${newSalary} </p>
                  
-                 <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${e.SaturdayHoursWorked} HS SABADO </p>
+                 <p><b>Por concepto de:</b> ${e.concept.toUpperCase()} ${
+        e.SaturdayHoursWorked
+      } HS SABADO </p>
                  <p class="extras"></p>
                  
                  <div class="containerFirma">
@@ -164,18 +166,18 @@ async function generateHTML(){
                      <p>DNI:</p>
                  </div>        
              </div>
-            `
-            template += addtemplate
-        }
-    })
-    extras.forEach(e => {
-        const newSalary = numeroALetras(e.salary, {
-            plural: "PESOS",
-            singular: "PESO",
-            centPlural: "CENTAVOS",
-            centSingular: "CENTAVO"
-        })
-        let extraTemplate = `
+            `;
+      template += addtemplate;
+    }
+  });
+  extras.forEach((e) => {
+    const newSalary = numeroALetras(e.salary, {
+      plural: "PESOS",
+      singular: "PESO",
+      centPlural: "CENTAVOS",
+      centSingular: "CENTAVO",
+    });
+    let extraTemplate = `
             <div class="containerRecibo">
                 <h3>RECIBO DE PAGO</h3>
                 <div class="containerFecha">
@@ -195,11 +197,10 @@ async function generateHTML(){
                     <p>DNI:</p>
                 </div>        
             </div>
-        `
-        template += extraTemplate
-    }) 
-    return template
+        `;
+    template += extraTemplate;
+  });
+  return template;
 }
 
-
-module.exports = { generateHTML }
+module.exports = { generateHTML };

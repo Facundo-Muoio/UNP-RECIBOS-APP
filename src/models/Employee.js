@@ -84,9 +84,11 @@ employeeSchema.methods.salaryCalc = function (concept, extras) {
     switch (concept) {
       case "Mozo":
         if (extras) {
-          return (this.salary = hoursWorked * 538.47 + Number(extras));
+          return (this.salary = Math.round(
+            hoursWorked * 538.47 + Number(extras)
+          ));
         }
-        this.salary = hoursWorked * 538.47;
+        this.salary = Math.round(hoursWorked * 538.47);
         break;
       case "Bartender":
         if (extras) {
